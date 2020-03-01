@@ -56,8 +56,6 @@ public class DataReceiver {
     }
 
 
-
-
     double[] getLimitOfIntegrationAndAccuracy() throws IOException {
 
         double [] parameters = new double[3];
