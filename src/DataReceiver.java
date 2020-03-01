@@ -8,40 +8,27 @@ public class DataReceiver {
 
     void selectFunction() {
         boolean success = false;
-        double [] parameters;
-        double toplimit = 0;
-        double bottomLimit = 0;
-        double accuracy = 0;
         while (!success) {
             System.out.println("Выберете одну из функций, для которой будет вычислен интеграл методом Прямоугольников\nИ введите ее номер.\n"
                     + "1) 8+2x-x^2  \n"
                     + "2) (2x)^(1/2)+x^(1/3) \n"
                     + "3)  x/(1+x)^(1/2)");
             try {
-                switch (in.readLine()) {
+                String integrals = in.readLine();
+                success = true;
+                double [] parameters;
+                switch (integrals) {
                     case "1":
-                        success = true;
                         parameters = getLimitOfIntegrationAndAccuracy();
-                        toplimit = parameters[0];
-                        bottomLimit = parameters [1];
-                        accuracy = parameters [2];
-                        methodOfRectangles.function1(toplimit,bottomLimit,accuracy);
+                        methodOfRectangles.function1(parameters[0],parameters[1],parameters [2]);
                         break;
                     case "2":
-                        success = true;
                         parameters = getLimitOfIntegrationAndAccuracy();
-                        toplimit = parameters[0];
-                        bottomLimit = parameters [1];
-                        accuracy = parameters [2];
-                        methodOfRectangles.function2(toplimit,bottomLimit,accuracy);
+                        methodOfRectangles.function2(parameters[0],parameters[1],parameters [2]);
                         break;
                     case "3":
-                        success = true;
                         parameters = getLimitOfIntegrationAndAccuracy();
-                        toplimit = parameters[0];
-                        bottomLimit = parameters [1];
-                        accuracy = parameters [2];
-                        methodOfRectangles.function3(toplimit,bottomLimit,accuracy);
+                        methodOfRectangles.function3(parameters[0],parameters[1],parameters [2]);
                         break;
                     default:
                         success = false;
@@ -49,30 +36,25 @@ public class DataReceiver {
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println("Неверный ввод!");
-                System.exit(0);
+                System.exit(0); //FIXME
             }
         }
 
     }
 
 
-    double[] getLimitOfIntegrationAndAccuracy() throws IOException {
-
+    double[] getLimitOfIntegrationAndAccuracy() {
         double [] parameters = new double[3];
-
         try {
-
             System.out.println("Введите пределы интегрирования. Верхний: ");
             parameters[0] = Double.parseDouble(in.readLine());
             System.out.println("Нижний:");
             parameters[1] = Double.parseDouble(in.readLine());
             System.out.println("Введите требуемую точность:");
             parameters[2] = Double.parseDouble(in.readLine());
-
         } catch (Exception e) {
             System.out.println(" ");
         }
-
         return parameters;
     }
 
