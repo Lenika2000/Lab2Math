@@ -19,9 +19,15 @@ public class Function {
 		int n = 4;
 		final double bigStep = topLimit - bottomLimit;
 		double I0 = 0;
+        double h = bigStep / n;
 
-		while (true) {
-			double h = bigStep / n;
+        for (double i = bottomLimit; i < topLimit; i += h) {
+            I0 = I0 + function.apply(h, i);
+        }
+        n *= 2;
+
+        while (true) {
+			h = bigStep / n;
 			double I1 = 0;
 			for (double i = bottomLimit; i < topLimit; i += h) {
 				I1 = I1 + function.apply(h, i);
@@ -48,10 +54,16 @@ public class Function {
 		int n = 4;
 		final double bigStep = topLimit - bottomLimit;
 		double I0 = 0;
+        double h = bigStep / n;
 
-		while (true) {
-			double h = bigStep / n;
-			double I1 = 0;
+        for (double i = bottomLimit; i < topLimit; i += h) {
+            I0 = I0 + function.apply(h, i);
+        }
+        n *= 2;
+
+        while (true) {
+            h = bigStep / n;
+            double I1 = 0;
 			for (double i = bottomLimit + h; i <= topLimit; i += h) {
 				I1 = I1 + function.apply(h, i);
 			}
@@ -75,10 +87,16 @@ public class Function {
 		int n = 4;
 		final double bigStep = topLimit - bottomLimit;
 		double I0 = 0;
+        double h = bigStep / n;
 
-		while (true) {
-			double h = bigStep / n;
-			double I1 = 0;
+        for (double i = bottomLimit; i < topLimit; i += h) {
+            I0 = I0 + function.apply(h, i);
+        }
+        n *= 2;
+
+        while (true) {
+            h = bigStep / n;
+            double I1 = 0;
 
 			for (double i = bottomLimit + h / 2; i <= topLimit - h / 2; i += h) {
 				I1 = I1 + function.apply(h, i);
