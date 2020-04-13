@@ -16,8 +16,8 @@ public class Function {
     }
 
     void leftRectangles() {
-        int n = 4;
-        final double bigStep = topLimit - bottomLimit;
+        int n = 4;//начальное разбиение
+        final double bigStep = topLimit - bottomLimit;//длинна отрезка интегрирования
         double I0 = 0;
         double h = bigStep / n;
 

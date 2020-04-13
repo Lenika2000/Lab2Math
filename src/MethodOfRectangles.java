@@ -5,11 +5,11 @@ public class MethodOfRectangles {
         function.calculateAllMethods();
     }
     void function2(double topLimit, double bottomLimit, double accuracy){
-        Function function = new Function(topLimit, bottomLimit, accuracy, (Double h, Double i) -> h*(Math.sqrt(2*i)+Math.cbrt(i)), "(2x)^(1/2)+x^(1/3)");
+        Function function = new Function(topLimit, bottomLimit, accuracy, (Double h, Double i) -> h*(Math.cbrt(2*i)+Math.cbrt(i)), "(2x)^(1/3)+x^(1/3)");
         function.calculateAllMethods();
     }
     void function3(double topLimit, double bottomLimit, double accuracy){
-        Function function = new Function(topLimit, bottomLimit, accuracy, (Double h, Double i) -> h*(i/Math.sqrt(i+1)), "x/(1+x)^(1/2)");
+        Function function = new Function(topLimit, bottomLimit, accuracy, (Double h, Double i) -> h*(Math.cbrt(i*i+i+1)), "(x^2+x+1)^(1/3)");
         function.calculateAllMethods();
     }
 
